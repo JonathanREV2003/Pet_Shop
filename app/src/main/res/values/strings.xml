@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Tienda mascotas</string>
     <string name="title_activity_pantalla_no2">PantallaNo2</string>
+    <string name="title_activity_pantalla_principal2">PantallaPrincipal2</string>
 </resources>
