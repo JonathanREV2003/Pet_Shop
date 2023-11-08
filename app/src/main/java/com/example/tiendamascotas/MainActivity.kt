@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
 import com.example.tiendamascotas.view.Elementos
+import loginscreen.LoginScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +31,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Elementos()
+                    LoginScreen()
                 }
             }
         }

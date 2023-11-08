@@ -68,4 +68,6 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    // para el icono de la contaseña
+        implementation("androidx.compose.material:material-icons-extended:1.3.1")
 }
