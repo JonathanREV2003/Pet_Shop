@@ -1,9 +1,15 @@
 package com.example.tiendamascotas.view
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.BottomAppBar
@@ -20,10 +26,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.tiendamascotas.R
 import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -62,12 +72,41 @@ fun ScaffolPrincipal2() {
                 Icon(Icons.Default.Add, contentDescription = "Add")
             }
         }
+
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .padding(innerPadding),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
+
+            Text(text = "Accesorios", fontSize = 20.sp)
+            Box(
+                contentAlignment = Alignment.TopCenter
+            ) {
+
+                Image(painter = painterResource(id = R.drawable.accesorios), contentDescription = null,
+                    modifier = Modifier.clickable { println("CLICK") })
+
+            }
+            Text(text = "comida", fontSize = 20.sp)
+            Box(
+                contentAlignment = Alignment.TopCenter
+            ) {
+                Image(painter = painterResource(id = R.drawable.accesorios), contentDescription = null,
+                    modifier = Modifier.clickable { println("CLICK") })
+
+
+            }
+            Text(text = "Mascotas", fontSize = 20.sp)
+            Box(
+                contentAlignment = Alignment.TopCenter
+            ) {
+                Image(painter = painterResource(id = R.drawable.accesorios), contentDescription = null,
+                    modifier = Modifier.clickable { println("CLICK") })
+
+            }
+           /*
             Text(
                 modifier = Modifier.padding(8.dp),
                 text =
@@ -75,11 +114,12 @@ fun ScaffolPrincipal2() {
                     
                     Aplicacion tienda de productos para mascotas 
 
-                    Todo tipo de productos como:
+                    toodo tipo de productos como:
 
                     Accesorios, comidas y mascotas $presses 
                 """.trimIndent(),
             )
+            */
         }
     }
 }

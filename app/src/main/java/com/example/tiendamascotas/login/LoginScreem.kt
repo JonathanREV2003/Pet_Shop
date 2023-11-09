@@ -1,6 +1,7 @@
 package com.example.tiendamascotas.login
 
     import android.content.Context
+    import android.content.Intent
     import android.util.Patterns
     import android.widget.Toast
     import androidx.compose.foundation.Image
@@ -32,6 +33,7 @@ package com.example.tiendamascotas.login
     import androidx.compose.ui.text.input.VisualTransformation
     import androidx.compose.ui.tooling.preview.Preview
     import androidx.compose.ui.unit.dp
+    import com.example.tiendamascotas.PantallaNo2
     import com.example.tiendamascotas.R
 
 
@@ -49,7 +51,7 @@ fun LoginScreen() {
     var passwordVisible by remember { mutableStateOf(false) }
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color(0xFF2973AC))) {
+        .background(Color(0xFF99FFFF))) {
         Column(
             Modifier
                 .align(Alignment.Center)
@@ -101,6 +103,10 @@ fun RowButtonLogin(
     isValidEmail: Boolean,
     isValidPassword: Boolean
 ) {
+
+    //solo para probar que navegue a la pantalla2
+    val mContext = LocalContext.current
+
     Row(
         Modifier
             .fillMaxWidth()
@@ -109,7 +115,15 @@ fun RowButtonLogin(
     ) {
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { login(context) },
+            onClick = {
+
+               // login(context)
+
+                mContext.startActivity(
+                    Intent(mContext,
+                    PantallaNo2::class.java)
+                )
+                      },
             enabled = isValidEmail && isValidPassword
         ) {
             Text(text = "Iniciar Sesión")
@@ -117,88 +131,6 @@ fun RowButtonLogin(
     }
 }
 
-
- /*   @OptIn(ExperimentalMaterial3Api::class)
-    @Composable
-    fun LoginScreen() {
-        val context = LocalContext.current
-
-        var email by remember { mutableStateOf("") }
-        var isValidEmail by remember { mutableStateOf(false) }
-
-        var contrasena by remember { mutableStateOf("") }
-        var isValidPassword by remember { mutableStateOf(false) }
-
-        var passwordVisible by remember { mutableStateOf(false) }
-        Box(modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFF2973AC))) {
-            Column(
-                Modifier
-                    .align(Alignment.Center)
-                    .padding(16.dp)
-                    .fillMaxWidth()) {
-                Card(Modifier.padding(12.dp),
-                    shape = RoundedCornerShape(10.dp),
-                    elevation = 20.dp
-
-                ) {
-                    Column(Modifier.padding(16.dp)) {
-                        RowImage()
-                        RowEmail(
-                            email = email,
-                            emailChange = {
-                                email = it
-                                isValidEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-                            },
-                            isValidEmail
-                        )
-                        RowPassword(
-                            contrasena = contrasena,
-                            passwordChange = {
-                                contrasena = it
-                                isValidPassword = contrasena.length >= 6
-                            },
-                            passwordVisible = passwordVisible,
-                            passwordVisibleChange = { passwordVisible = !passwordVisible },
-                            isValidPassword = isValidPassword
-                        )
-                        RowButtonLogin(
-                            context = context,
-                            isValidEmail = isValidEmail,
-                            isValidPassword = isValidPassword
-                        )
-                    }
-                }
-            }
-        }
-    }
-
-
-    @Composable
-
-
-    fun RowButtonLogin(
-        context: Context,
-        isValidEmail: Boolean,
-        isValidPassword: Boolean
-    ) {
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            horizontalArrangement = Arrangement.Center) {
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                onClick = { login(context) },
-                enabled = isValidEmail && isValidPassword
-
-            ) {
-                Text(text = "Iniciar Sesión")
-            }
-        }
-    }
-*/
 
     fun login(context: Context) {
         Toast.makeText(context, "FALLA LOGIN :)", Toast.LENGTH_LONG).show()
@@ -306,3 +238,88 @@ fun RowButtonLogin(
                 contentDescription = "Imagen huella")
         }
     }
+
+
+
+
+/*   @OptIn(ExperimentalMaterial3Api::class)
+   @Composable
+   fun LoginScreen() {
+       val context = LocalContext.current
+
+       var email by remember { mutableStateOf("") }
+       var isValidEmail by remember { mutableStateOf(false) }
+
+       var contrasena by remember { mutableStateOf("") }
+       var isValidPassword by remember { mutableStateOf(false) }
+
+       var passwordVisible by remember { mutableStateOf(false) }
+       Box(modifier = Modifier
+           .fillMaxSize()
+           .background(Color(0xFF2973AC))) {
+           Column(
+               Modifier
+                   .align(Alignment.Center)
+                   .padding(16.dp)
+                   .fillMaxWidth()) {
+               Card(Modifier.padding(12.dp),
+                   shape = RoundedCornerShape(10.dp),
+                   elevation = 20.dp
+
+               ) {
+                   Column(Modifier.padding(16.dp)) {
+                       RowImage()
+                       RowEmail(
+                           email = email,
+                           emailChange = {
+                               email = it
+                               isValidEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+                           },
+                           isValidEmail
+                       )
+                       RowPassword(
+                           contrasena = contrasena,
+                           passwordChange = {
+                               contrasena = it
+                               isValidPassword = contrasena.length >= 6
+                           },
+                           passwordVisible = passwordVisible,
+                           passwordVisibleChange = { passwordVisible = !passwordVisible },
+                           isValidPassword = isValidPassword
+                       )
+                       RowButtonLogin(
+                           context = context,
+                           isValidEmail = isValidEmail,
+                           isValidPassword = isValidPassword
+                       )
+                   }
+               }
+           }
+       }
+   }
+
+
+   @Composable
+
+
+   fun RowButtonLogin(
+       context: Context,
+       isValidEmail: Boolean,
+       isValidPassword: Boolean
+   ) {
+       Row(
+           Modifier
+               .fillMaxWidth()
+               .padding(10.dp),
+           horizontalArrangement = Arrangement.Center) {
+           Button(
+               modifier = Modifier.fillMaxWidth(),
+               onClick = { login(context) },
+               enabled = isValidEmail && isValidPassword
+
+           ) {
+               Text(text = "Iniciar Sesión")
+           }
+       }
+   }
+*/
