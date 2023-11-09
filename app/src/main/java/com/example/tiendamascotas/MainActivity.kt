@@ -30,7 +30,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    //Elementos()
                     LoginScreen()
                 }
             }
@@ -44,6 +43,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     TiendaMascotasTheme {
-        Elementos()
+        LoginScreen()
     }
 }
