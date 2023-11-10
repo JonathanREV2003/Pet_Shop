@@ -34,6 +34,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -52,17 +54,26 @@ fun ScaffolPrincipal2() {
     Scaffold(
         topBar = {
             TopAppBar(
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
-                ),
+                modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer),
                 title = {
-                    Text("Pet Shop")
+                    Text(
+                        text = "Pet Shop",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 11.dp),
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 24.sp,
+                            color = MaterialTheme.colorScheme.onPrimary
+                        )
+                    )
                 }
             )
         },
         bottomBar = {
             BottomAppBar(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer),
                 contentColor = MaterialTheme.colorScheme.secondary,
             ) {
                 Text(
@@ -73,76 +84,70 @@ fun ScaffolPrincipal2() {
             }
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = {
-                mContexto.startActivity(Intent(mContexto, ListActivity::class.java))
-            }) {
+            FloatingActionButton(
+                onClick = {
+                    mContexto.startActivity(Intent(mContexto, ListActivity::class.java))
+                },
+                modifier = Modifier.padding(16.dp)
+            ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
             }
         }
     ) { innerPadding ->
         Column(
-            modifier = Modifier.padding(innerPadding),
+            modifier = Modifier
+                .padding(innerPadding)
+                .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
-            Text(text = "Accesorios", fontSize = 20.sp)
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp) // Ajusta la altura según tus necesidades
-                    .background(MaterialTheme.colorScheme.primaryContainer) // Color de fondo del Box
-                    .padding(16.dp), // Espaciado interno
-                contentAlignment = Alignment.Center,
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.accesorios2),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .clickable {
-                            mContexto.startActivity(
-                                Intent(mContexto, ActivityAccesorios::class.java)
-                            )
-                        }
-                        .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
-                )
-            }
-            Text(text = "comida", fontSize = 20.sp)
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp) // Ajusta la altura según tus necesidades
-                    .background(MaterialTheme.colorScheme.primaryContainer) // Color de fondo del Box
-                    .padding(16.dp), // Espaciado interno
-                contentAlignment = Alignment.Center,
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.comida),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
-                        .clickable { println("CLICK") }
-                )
-            }
-            Text(text = "Mascotas", fontSize = 20.sp)
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp) // Ajusta la altura según tus necesidades
-                    .background(MaterialTheme.colorScheme.primaryContainer) // Color de fondo del Box
-                    .padding(16.dp), // Espaciado interno
-                contentAlignment = Alignment.Center,
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.mascotas),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
-                        .clickable { println("CLICK") }
-                )
-            }
+            ItemCard(
+                title = "Accesorios",
+                imageResource = R.drawable.accesorios2,
+                onClick = {
+                    mContexto.startActivity(
+                        Intent(mContexto, ActivityAccesorios::class.java)
+                    )
+                }
+            )
+            ItemCard(
+                title = "Comida",
+                imageResource = R.drawable.comida,
+                onClick = { println("CLICK") }
+            )
+            ItemCard(
+                title = "Mascotas",
+                imageResource = R.drawable.mascotas,
+                onClick = { println("CLICK") }
+            )
         }
     }
 }
 
+@Composable
+fun ItemCard(title: String, imageResource: Int, onClick: () -> Unit) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(200.dp)
+            .background(MaterialTheme.colorScheme.primaryContainer)
+            .clip(RoundedCornerShape(16.dp))
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        Image(
+            painter = painterResource(id = imageResource),
+            contentDescription = null,
+        )
+        Text(
+            text = title,
+            fontSize = 20.sp,
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier
+                .padding(16.dp)
+                .align(Alignment.BottomStart)
+        )
+    }
+}
 
 
 @Preview
