@@ -1,5 +1,6 @@
 package com.example.tiendamascotas.view
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -28,11 +29,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.tiendamascotas.ListActivity
 import com.example.tiendamascotas.R
 import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
 
@@ -40,7 +43,7 @@ import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
 @Composable
 fun ScaffolPrincipal2() {
 
-    var presses by remember { mutableIntStateOf(0) }
+    val mContexto = LocalContext.current
 
     Scaffold(
 
@@ -68,7 +71,9 @@ fun ScaffolPrincipal2() {
             }
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = { presses++ }) {
+            FloatingActionButton(onClick = {
+                mContexto.startActivity(Intent(mContexto, ListActivity::class.java))
+            }) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
             }
         }
