@@ -51,7 +51,8 @@ fun LoginScreen() {
     var passwordVisible by remember { mutableStateOf(false) }
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color(0xFF99FFFF))) {
+        .background(Color(0xFFE1BEE7))
+    ) {
         Column(
             Modifier
                 .align(Alignment.Center)
@@ -234,7 +235,7 @@ fun RowButtonLogin(
             horizontalArrangement = Arrangement.Center) {
             Image(
                 modifier = Modifier.width(100.dp),
-                painter = painterResource(id = R.drawable.petshop),
+                painter = painterResource(id = R.drawable.imagenlogin),
                 contentDescription = "Imagen huella")
         }
     }

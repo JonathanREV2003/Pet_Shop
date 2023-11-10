@@ -44,9 +44,9 @@ import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
 class ListActivity : ComponentActivity() {
 
     val listado : List<Articulo> = listOf(
-        Articulo(R.drawable.icons8mascotas48,"Pet shop", "Detalles sobre razas"),
-        Articulo(R.drawable.icons8pettoys,"Accesorios", "Detalles sobre razas"),
-        Articulo(R.drawable.icons8petfood64,"Alimentación", "Detalles sobre razas"),
+        Articulo(R.drawable.icons8mascotas48," Más sobre Mascotas", "comercio al por menor dedicado a la venta de productos para mascotas como alimentos, juguetes, snacks, cepillos, y accesorios para mascotas en general."),
+        Articulo(R.drawable.icons8pettoys,"Más sobre Accesorios", "¡Variedad De Artículos En Un Solo Lugar! encuentra los mejores articulos para tu mascota"),
+        Articulo(R.drawable.icons8petfood64,"Más sobre Alimentación", "Variedad de alimentos para tu mascota desde procesados a naturales"),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -145,9 +145,9 @@ fun ListItemRow(item: Articulo){
 @Composable
 fun PantallaPreview(){
     val listado : List<Articulo> = listOf(
-        Articulo(R.drawable.icons8mascotas48,"  Pet shop", "Detalles sobre razas"),
-        Articulo(R.drawable.icons8pettoys,"Accesorios", "Detalles sobre razas"),
-        Articulo(R.drawable.icons8petfood64,"Alimentación", "Detalles sobre razas")
+        Articulo(R.drawable.icons8mascotas48," Más sobre Mascotas", "comercio al por menor dedicado a la venta de productos para mascotas como alimentos, juguetes, snacks, cepillos, y accesorios para mascotas en general."),
+        Articulo(R.drawable.icons8pettoys,"Más sobre Accesorios", "¡Variedad De Artículos En Un Solo Lugar! encuentra los mejores articulos para tu mascota"),
+        Articulo(R.drawable.icons8petfood64,"Más sobre Alimentación", "Variedad de alimentos para tu mascota desde procesados a naturales"),
     )
     TiendaMascotasTheme(true) {
         Pantalla(listado)

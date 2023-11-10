@@ -33,7 +33,7 @@ val mContext = LocalContext.current
         verticalArrangement = Arrangement.Center
     ) {
 
-        Image(painter = painterResource(id = R.drawable.petshop),
+        Image(painter = painterResource(id = R.drawable.imagenlogin),
             contentDescription = "petShop")
 
         Text("Pet shop",

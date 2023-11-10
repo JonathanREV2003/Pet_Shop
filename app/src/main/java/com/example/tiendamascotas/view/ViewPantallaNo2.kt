@@ -35,7 +35,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.tiendamascotas.ActivityAccesorios
 import com.example.tiendamascotas.ListActivity
+import com.example.tiendamascotas.PantallaNo2
 import com.example.tiendamascotas.R
 import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
 
@@ -90,15 +92,22 @@ fun ScaffolPrincipal2() {
                 contentAlignment = Alignment.TopCenter
             ) {
 
-                Image(painter = painterResource(id = R.drawable.accesorios), contentDescription = null,
-                    modifier = Modifier.clickable { println("CLICK") })
+                Image(painter = painterResource(id = R.drawable.accesorios2), contentDescription = null,
+                    modifier = Modifier.clickable (
+                        onClick = {
+                            mContexto.startActivity(
+                                Intent(mContexto,
+                                    ActivityAccesorios::class.java)
+                            )
+                        }
+                    ))
 
             }
             Text(text = "comida", fontSize = 20.sp)
             Box(
                 contentAlignment = Alignment.TopCenter
             ) {
-                Image(painter = painterResource(id = R.drawable.accesorios), contentDescription = null,
+                Image(painter = painterResource(id = R.drawable.comida), contentDescription = null,
                     modifier = Modifier.clickable { println("CLICK") })
 
 
@@ -107,7 +116,7 @@ fun ScaffolPrincipal2() {
             Box(
                 contentAlignment = Alignment.TopCenter
             ) {
-                Image(painter = painterResource(id = R.drawable.accesorios), contentDescription = null,
+                Image(painter = painterResource(id = R.drawable.mascotas), contentDescription = null,
                     modifier = Modifier.clickable { println("CLICK") })
 
             }
