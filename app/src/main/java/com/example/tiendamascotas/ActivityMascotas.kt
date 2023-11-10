@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
+import com.example.tiendamascotas.view.ViewMascotas
 
 class ActivityMascotas : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,25 +23,19 @@ class ActivityMascotas : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting3("Android")
+                    ViewMascotas()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting3(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview5() {
     TiendaMascotasTheme {
-        Greeting3("Android")
+        ViewMascotas()
     }
 }

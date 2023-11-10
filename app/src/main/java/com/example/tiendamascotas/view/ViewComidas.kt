@@ -11,12 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -29,17 +25,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tiendamascotas.ActivityAccesorios
-import com.example.tiendamascotas.ListActivity
 import com.example.tiendamascotas.R
-import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ViewAccesorios() {
+fun ViewComidas() {
 
     val mContexto = LocalContext.current
 
@@ -50,7 +43,7 @@ fun ViewAccesorios() {
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 ),
                 title = {
-                    Text("Accesorios para mascotas")
+                    Text("Comidas para mascotas")
                 }
             )
         },
@@ -72,7 +65,7 @@ fun ViewAccesorios() {
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
-            Text(text = "Cama para mascotas", fontSize = 20.sp)
+            Text(text = "Comida para gatos", fontSize = 20.sp)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -82,7 +75,7 @@ fun ViewAccesorios() {
                 contentAlignment = Alignment.Center, // Centra el contenido
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.cama1para1mascotas),
+                    painter = painterResource(id = R.drawable.cat2food),
                     contentDescription = null,
                     modifier = Modifier
                         .clickable {
@@ -91,7 +84,7 @@ fun ViewAccesorios() {
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
                 )
             }
-            Text(text = "Cepillo para mascotas", fontSize = 20.sp)
+            Text(text = "Comida para perros", fontSize = 20.sp)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -101,14 +94,14 @@ fun ViewAccesorios() {
                 contentAlignment = Alignment.Center, // Centra el contenido
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.cepillo1para1mascotas),
+                    painter = painterResource(id = R.drawable.dog2food),
                     contentDescription = null,
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
                         .clickable { println("CLICK") }
                 )
             }
-            Text(text = "Collar para mascotas", fontSize = 20.sp)
+            Text(text = "Comida para peces", fontSize = 20.sp)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -118,7 +111,7 @@ fun ViewAccesorios() {
                 contentAlignment = Alignment.Center, // Centra el contenido
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.collar1para1mascotas),
+                    painter = painterResource(id = R.drawable.fish3food),
                     contentDescription = null,
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
@@ -128,4 +121,3 @@ fun ViewAccesorios() {
         }
     }
 }
-

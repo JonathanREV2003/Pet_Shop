@@ -1,6 +1,7 @@
 package com.example.tiendamascotas.view
 
 import android.content.Intent
+import android.service.autofill.OnClickAction
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -41,6 +42,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tiendamascotas.ActivityAccesorios
+import com.example.tiendamascotas.ActivityComidas
+import com.example.tiendamascotas.ActivityMascotas
 import com.example.tiendamascotas.ListActivity
 import com.example.tiendamascotas.PantallaNo2
 import com.example.tiendamascotas.R
@@ -54,7 +57,7 @@ fun ScaffolPrincipal2() {
     Scaffold(
         topBar = {
             TopAppBar(
-                modifier = Modifier.background(MaterialTheme.colorScheme.primaryContainer),
+                modifier = Modifier.background(MaterialTheme.colorScheme.secondary),
                 title = {
                     Text(
                         text = "Pet Shop",
@@ -65,7 +68,7 @@ fun ScaffolPrincipal2() {
                         style = TextStyle(
                             fontWeight = FontWeight.Bold,
                             fontSize = 24.sp,
-                            color = MaterialTheme.colorScheme.onPrimary
+                            color = MaterialTheme.colorScheme.secondary
                         )
                     )
                 }
@@ -81,6 +84,7 @@ fun ScaffolPrincipal2() {
                     textAlign = TextAlign.Center,
                     text = "CARRITO DE COMPRAS",
                 )
+
             }
         },
         floatingActionButton = {
@@ -112,12 +116,19 @@ fun ScaffolPrincipal2() {
             ItemCard(
                 title = "Comida",
                 imageResource = R.drawable.comida,
-                onClick = { println("CLICK") }
+                onClick = {
+                    mContexto.startActivity(
+                        Intent(mContexto, ActivityComidas::class.java)
+                    )
+                }
             )
             ItemCard(
                 title = "Mascotas",
                 imageResource = R.drawable.mascotas,
-                onClick = { println("CLICK") }
+                onClick = {
+                    mContexto.startActivity(
+                    Intent(mContexto, ActivityMascotas::class.java)
+                ) }
             )
         }
     }
