@@ -10,4 +10,5 @@
     <string name="title_activity_accesorios">ActivityAccesorios</string>
     <string name="title_activity_comidas">ActivityComidas</string>
     <string name="title_activity_mascotas">ActivityMascotas</string>
+    <string name="title_activity_lista_accesorios">ListaAccesorios</string>
 </resources>

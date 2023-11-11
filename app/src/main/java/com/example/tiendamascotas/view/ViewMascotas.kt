@@ -1,5 +1,6 @@
 package com.example.tiendamascotas.view
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,6 +27,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.tiendamascotas.ListActivity
 import com.example.tiendamascotas.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,7 +55,7 @@ fun ViewMascotas() {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    text = "CARRITO DE COMPRAS",
+                    text = "Tipos de razas",
                 )
             }
         },
@@ -78,7 +80,9 @@ fun ViewMascotas() {
                     modifier = Modifier
 
                         .clickable {
-                            println("CLICK")
+                            mContexto.startActivity(
+                                Intent(mContexto, ListActivity::class.java)
+                            )
                         }
 
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
@@ -99,7 +103,9 @@ fun ViewMascotas() {
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
 
-                        .clickable { println("CLICK") }
+                        .clickable { mContexto.startActivity(
+                            Intent(mContexto, ListActivity::class.java)
+                        ) }
                 )
             }
             Text(text = "Tortuga acuatica", fontSize = 20.sp)
@@ -117,7 +123,9 @@ fun ViewMascotas() {
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
 
-                        .clickable { println("CLICK") }
+                        .clickable { mContexto.startActivity(
+                            Intent(mContexto, ListActivity::class.java)
+                        ) }
                 )
             }
         }

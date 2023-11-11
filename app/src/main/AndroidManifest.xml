@@ -13,6 +13,17 @@
         android:theme="@style/Theme.TiendaMascotas"
         tools:targetApi="31">
         <activity
+            android:name=".ListaAccesorios"
+            android:exported="false"
+            android:label="@string/title_activity_lista_accesorios"
+            android:theme="@style/Theme.TiendaMascotas" />
+        <activity
+            android:name=".CarroComprasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmptyViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ActivityMascotas"
             android:exported="false"
             android:label="@string/title_activity_mascotas"

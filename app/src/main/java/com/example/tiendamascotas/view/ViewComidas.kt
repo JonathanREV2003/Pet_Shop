@@ -28,6 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tiendamascotas.ActivityAccesorios
+import com.example.tiendamascotas.ListActivity
 import com.example.tiendamascotas.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +56,7 @@ fun ViewComidas() {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    text = "CARRITO DE COMPRAS",
+                    text = "La mejor comida",
                 )
             }
         },
@@ -79,7 +80,9 @@ fun ViewComidas() {
                     contentDescription = null,
                     modifier = Modifier
                         .clickable {
-                            println("CLICK")
+                            mContexto.startActivity(
+                                Intent(mContexto, ListActivity::class.java)
+                            )
                         }
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
                 )
@@ -98,7 +101,9 @@ fun ViewComidas() {
                     contentDescription = null,
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
-                        .clickable { println("CLICK") }
+                        .clickable { mContexto.startActivity(
+                            Intent(mContexto, ListActivity::class.java)
+                        ) }
                 )
             }
             Text(text = "Comida para peces", fontSize = 20.sp)
@@ -115,7 +120,9 @@ fun ViewComidas() {
                     contentDescription = null,
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
-                        .clickable { println("CLICK") }
+                        .clickable { mContexto.startActivity(
+                            Intent(mContexto, ListActivity::class.java)
+                        ) }
                 )
             }
         }

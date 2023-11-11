@@ -33,6 +33,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tiendamascotas.ActivityAccesorios
+import com.example.tiendamascotas.ActivityMascotas
+import com.example.tiendamascotas.EmptyViewActivity
 import com.example.tiendamascotas.ListActivity
 import com.example.tiendamascotas.R
 import com.example.tiendamascotas.ui.theme.TiendaMascotasTheme
@@ -62,7 +64,7 @@ fun ViewAccesorios() {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Center,
-                    text = "CARRITO DE COMPRAS",
+                    text = "La vida con mascotas",
                 )
             }
         },
@@ -86,7 +88,9 @@ fun ViewAccesorios() {
                     contentDescription = null,
                     modifier = Modifier
                         .clickable {
-                            println("CLICK")
+                            mContexto.startActivity(
+                                Intent(mContexto, ListActivity::class.java)
+                            )
                         }
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
                 )
@@ -105,7 +109,11 @@ fun ViewAccesorios() {
                     contentDescription = null,
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
-                        .clickable { println("CLICK") }
+                        .clickable {
+                            mContexto.startActivity(
+                                Intent(mContexto, ListActivity::class.java)
+                            )
+                        }
                 )
             }
             Text(text = "Collar para mascotas", fontSize = 20.sp)
@@ -122,7 +130,11 @@ fun ViewAccesorios() {
                     contentDescription = null,
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp)) // Esquinas redondeadas
-                        .clickable { println("CLICK") }
+                        .clickable {
+                            mContexto.startActivity(
+                                Intent(mContexto, ListActivity::class.java)
+                            )
+                        }
                 )
             }
         }
